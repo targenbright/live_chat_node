@@ -1,0 +1,107 @@
+extends ../layout
+
+block append headScripts 
+  link(rel='stylesheet' href='/css/chatStyle.css')
+
+block landing 
+  div
+
+block content
+  div(class="container-fluid")
+    div(class="container container-lg-max")
+      div(class="login-container top-yellow-border mb-5 mt-5")
+        h1(class="text-warning text-center" style="font-size: 5rem;")
+          i(class="bi bi-person-circle text-warning text-center")
+        h1(class="text-warning text-center mb-4" style="font-weight: 900;") LOGIN
+        form(class="m-0" id="loginForm" name="loginForm" action="/projects/chat/login" method="POST")
+          div(class="form-floating mb-3")
+            input(class="form-control" id="username" name="username" placeholder="name@example.com" required)
+            label(for="username" class="text-warning") Username
+          div(class="form-floating mb-3")
+            input(type="password" class="form-control" id="password" name="password" placeholder="name@example.com" required)
+            label(for="password" class="text-warning") Password
+          div(class="d-grid")
+            button(class="btn btn-warning" style="font-weight: 900;" type="submit") LOGIN
+          //- div(class="d-grid")
+          //-   a(class="btn btn-warning" style="font-weight: 900;" href="/projects/chat/signup") SIGN UP (FOR ADMIN USE ONLY)
+        if emptyFields
+          div(class="alert alert-danger text-center mt-3") Please enter username and password!
+        else if notInDatabase
+          div(class="alert alert-danger text-center mt-3") Incorrect information entered! Please try again!
+        
+      div(class="login-container top-yellow-border mb-5 mt-5")
+        h4(class="col-12 text-center text-warning fw-bolder mb-3") LOGIN INFO
+        div(class="row text-center")
+          div(class="col-12")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") username 
+              p password
+        div(class="alert alert-danger text-center mt-3") If you are immediately disconnected, that user is already signed in. Try another account.
+
+      div(class="row cv-line-item-yellow mb-5")
+        h4(class="text-warning fw-bolder") Moderators
+        h5
+          span(class="text-warning fw-bolder")  Room: 
+          | All
+        p When using the Live Chat demo as a moderator, you should be able to send messages to the group, 
+          | delete your own messages, hide/unhide other users' messages, and report other users' messages. 
+          | Your username will appear in the moderators list of currently logged in users. When logging in, 
+          | you will be able to choose any room to enter.
+        div(class="row text-center")
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") ironman 
+              p jarvis
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") cap 
+              p america
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") thor 
+              p mjolnir
+
+      div(class="row cv-line-item-yellow mb-5")
+        h4(class="text-warning fw-bolder") Users
+        p When using the Live Chat demo, you should be able to send messages to the group, 
+          | delete your own messages,and report other users' messages. 
+          | Your username will appear in the users list of currently logged in users. When logging in, 
+          | you will be automatically put into the room you are assigned to.
+        h5
+          span(class="text-warning fw-bolder")  Room: 
+          | Downdown Smash
+        div(class="row text-center")
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") spiderman 
+              p thwip
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") hulk
+              p smash
+        h5
+          span(class="text-warning fw-bolder")  Room: 
+          | Espionage
+        div(class="row text-center")
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") hawkeye 
+              p bullseye
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") widow
+              p redroom
+        h5
+          span(class="text-warning fw-bolder")  Room: 
+          | Science Lab
+        div(class="row text-center")
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") panther 
+              p wakanda
+          div(class="col-12 col-sm-4 mb-3")
+            div(class="cv-vertical-yellow-inside")
+              h5(class="text-warning fw-bolder") antman
+              p giantman
+
+      //- div(class="container-fluid" style="height:5vh;")

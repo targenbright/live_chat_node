@@ -1,0 +1,14 @@
+extends layout 
+
+block landing
+    div
+
+block content 
+    div(class="container container-max-lg my-5")
+        h1(class="text-center text-warning")
+            | #{error.status}
+        h1(class="text-center text-warning")
+            | #{error.message}
+
+block footer 
+    div

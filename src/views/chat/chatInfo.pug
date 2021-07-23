@@ -1,0 +1,122 @@
+extends ../layout
+
+block landing 
+  div(class="container-fluid")
+    //- div(class="fade")
+    section(class="landing-animation-container container container-lg-max")
+      div(class="zoom-in")
+        div(class="title") 
+          h1 
+            i(class="fas fa-comments fa-3x")
+          h1 Live Chat
+        p A dockerized Node.JS and MySQL project using Socket.io to broadcast events over websockets. 
+          | Authentication uses BCrypt for password protection.
+
+block content
+  div(class="container-fluid")
+    div(class="container container-lg-max")
+        div(class="row")
+            div(class="col-sm-12 col-md-6 pb-3")
+                a(class="btn btn-yellow-glow fw-bolder w-100" href="http://www.github.com/targenbright") 
+                    h3
+                        i(class="fas fa-code")
+                        |  CODE
+            div(class="col-sm-12 col-md-6 pb-3")
+                a(class="btn btn-yellow-glow fw-bolder w-100" href="/projects/chat/demo") 
+                    h3
+                        i(class="fas fa-play")
+                        |  DEMO
+        div(class="cv-vertical-yellow-ng py-3")
+            div(class="row m-0 p-0")
+                div(class="col-12 col-md-6")
+                    h5(class="text-warning") Overview
+                    p Live Chat is built using MySQL, Express, Bootstrap, and NodeJS. It uses 
+                        | the Socket.io library inside of NodeJS to broadcast events to connected users. 
+                    p The purpose of Live Chat is to mimic a live chat room setting with persistant users 
+                        | and messages like predecessors (AIM, Facebook, Discord, etc.) before it. The 
+                        | simple features allow users to send and receive messages, delete their own 
+                        | messages, and report other messages that may be offensive. Moderators have the 
+                        | additional ability to hide any messages from other users that they think should 
+                        | no longer be visible.
+                div(class="project-modal col-12 col-md-6")
+                        div(id="liveChatCarousel" class="carousel slide carousel-fade yellow-glow-large" data-bs-ride="carousel" data-bs-interval="3000")
+                            //- div(class="carousel-indicators")
+                            //-     button(type="button" data-bs-target="#liveChatCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1")
+                            //-     button(type="button" data-bs-target="#liveChatCarousel" data-bs-slide-to="1" aria-label="Slide 2")
+                            //-     button(type="button" data-bs-target="#liveChatCarousel" data-bs-slide-to="2" aria-label="Slide 3")
+                            //-     button(type="button" data-bs-target="#liveChatCarousel" data-bs-slide-to="3" aria-label="Slide 4")
+                            //-     button(type="button" data-bs-target="#liveChatCarousel" data-bs-slide-to="4" aria-label="Slide 5")
+
+                            div(class="carousel-inner")
+                                div(class="carousel-item active")
+                                    img(src="/images/projects/liveChat/chat2c.png" class="d-block w-100")
+                                div(class="carousel-item")
+                                    img(src="/images/projects/liveChat/chat3c.png" class="d-block w-100")
+                                div(class="carousel-item")
+                                    img(src="/images/projects/liveChat/chat1c.png" class="d-block w-100")
+                                div(class="carousel-item")
+                                    img(src="/images/projects/liveChat/chat4c.png" class="d-block w-100")
+                                div(class="carousel-item")
+                                    img(src="/images/projects/liveChat/chat5c.png" class="d-block w-100")
+                            
+                            //- button(class="carousel-control-prev" type="button" data-bs-target="#liveChatCarousel" data-bs-slide="prev")
+                            //-     span(class="carousel-control-prev-icon" aria-hidden="true")
+                            //-     span(class="visually-hidden") Previous
+
+                            //- button(class="carousel-control-next" type="button" data-bs-target="#liveChatCarousel" data-bs-slide="next")
+                            //-     span(class="carousel-control-next-icon" aria-hidden="true")
+                            //-     span(class="visually-hidden") Next
+            div(class="row m-0 p-0 mt-3")
+                div(class="col-12")
+                    h5(class="text-warning")
+                        | Development:  
+                    p This project was something that I couldn't stop working on once I fully understood the Socket.io library. 
+                        | I initally started with the documentation from the Socket.io website in order to get all of the pieces 
+                        | in place. I watched a few tutorials of others showing similar implementations. After seeing a few working 
+                        | versions, I created a structure for the chat window and began to adjust my default setup as I thought of 
+                        | new features I wanted to implement. (This is not good. See 'What I Would Do Different')
+                    p With the chat window structured, I began styling the chat messages themselves. Over time, they have had many 
+                        | different shapes and layouts. I eventually stuck with a "me" vs "them" layout as seen in many text messaging 
+                        | and web messenger apps. All of the current user's messages displaying on the right, and all of the other 
+                        | messages showing up on the left. At this point, all of the messages did not have usernames attached to them 
+                        | nor were they stored in any location. If you were not in the chat room when the message was broadcast, you 
+                        | would never see it.
+                    p It was at this point that I wanted to begin implementing users and persistant messages with a database. I am 
+                        | most comforatble with MySQL so that is what I chose to work with. I decided that users would only need a 
+                        | username and password. There would not be any account settings or user images to deal with. Each user would 
+                        | be given a role. If they were a standard user, they would be given a chat room to participate in rather than 
+                        | being able to create or join other rooms. A moderator user would be able to choose which room they want to 
+                        | join. This way, few moderators could watch over many chat rooms.
+                    p With the idea of moderators being different than typical users, they needed to be given special actions that 
+                        | they could perform. I decided that any message could be deleted by the user that sent it, moderators could 
+                        | hide other messages from the main view, and any user could report a message. Each of these actions needed 
+                        | to be created at multiple points in time. Using the message id from the database, each of the HTML elements 
+                        | have specific names in order to properly manipualte them with CSS and JS.
+                    p A user list was added to the window with the ability to show or hide it. I was not thinking of a mobile friendly 
+                        | view when I began the project, so hiding the user list was the best option to fix the issue of a narrow viewport. 
+                        | In order to assist the user list, server messages were added to show when a user would join or leave the 
+                        | chat room. These messages were only broadcast to the current users and are not stored anywhere. 
+            div(class="row m-0 p-0 mt-3")
+                div(class="col-12")
+                    h5(class="text-warning")
+                        | What I Would Do Different:  
+                    p I spent a lot of time at the beginning coding different designs. Design needs to be done before any code begins 
+                        | to be written. It takes a lot less time to create a mockup design than it does to implement it. My design 
+                        | needed to also include overall project structure. My initial goal was to get one feature working, then add 
+                        | a new one, and so on. Even though I have reporting messages as a feature, it dies there. Messages are reported 
+                        | and stored in the database, but currently, moderators are unable to do anything with them. In order to allow 
+                        | for a feature like this to be implemented, I would need new routing and a well-designed "ticket system" that 
+                        | moderators would be able to sort through and take action on. This is essentially another project itself, so 
+                        | I let it stop at this point for now.
+            div(class="row m-0 p-0 mt-3")
+                div(class="col-12")
+                    h5(class="text-warning")
+                        | Tools used:  
+                        span(class="text-light ms-3")
+                            i(class="fas fa-database me-3")
+                            i(class="fab fa-js-square me-3")
+                            i(class="fab fa-bootstrap me-3")
+                            i(class="fab fa-node me-3")
+                            i(class="fab fa-git-alt me-3")
+                            i(class="fab fa-digital-ocean me-3")
+  div(class="container-fluid" style="height:5vh;")

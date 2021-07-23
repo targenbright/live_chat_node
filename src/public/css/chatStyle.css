@@ -1,0 +1,362 @@
+.login-container {
+    background-color: var(--bs-dark-75);
+    background-image: var(--bs-gradient) !important;
+    max-width: 350px;
+    padding: 1rem;
+    margin: auto;
+}
+
+.modal-container {
+    background-color: var(--bs-dark);
+    background-image: var(--bs-gradient) !important;
+    padding: 1rem;
+    margin: auto;
+}
+
+.chat-container {
+    /* height: 80vh; */
+    background-color: var(--bs-dark-75);
+    background-image: var(--bs-gradient) !important;
+    /* animation: large-glow-yellow 800ms ease-out infinite alternate;
+    border-color: rgba(255, 193, 7, 1);
+	box-shadow: 0 0 5px rgba(255, 193, 7, .8); */
+}
+
+.chat-header {
+    /* background: var(--bs-dark); */
+    color: var(--bs-yellow);
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.chat-sidebar {
+	/* background: var(--bs-dark); */
+    padding: 1rem;
+	overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    /* border-right: 3px solid var(--bs-yellow); */
+}
+
+.chat-sidebar-hidden {
+	/* background: var(--bs-dark); */
+    padding: 0;
+	display: none;
+    /* border-right: 3px solid var(--bs-yellow); */
+}
+/* 
+.chat-sidebar::-webkit-scrollbar {
+    width: .5em;
+}
+
+.chat-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+} */
+
+.chat-sidebar h3 {
+    margin-bottom: 15px;
+}
+
+.chat-sidebar ul li {
+    padding: 10px 0;
+}
+
+.chat-messages {
+    /* background: var(--bs-dark); */
+    height: 65vh;
+    padding: 1rem;
+    overflow-y: auto;
+}
+/* 
+.chat-messages::-webkit-scrollbar {
+    width: .5em;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+} */
+
+.hide-message {
+    opacity: .5;
+}
+
+.message-spacing {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.my-message-spacing {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.server-message-spacing {
+    display: block;
+}
+
+.message {
+    background-color: var(--bs-dark-75);
+    /* background-image: var(--bs-gradient-90) !important; */
+    border-left: 3px solid var(--bs-yellow);
+    margin-bottom: 1rem;
+    margin-right: 2rem;
+    padding: .5em;
+    margin-top: 1em;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    overflow-wrap: break-word;
+}
+
+.myMessage {
+    background-color: var(--bs-dark-75);
+    /* background-image: var(--bs-gradient-90-rev) !important; */
+    border-right: 3px solid var(--bs-yellow);
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    padding: .5em;
+    margin-top: 1em;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    text-align: right;
+    overflow-wrap: break-word;
+}
+
+/* .myMessage {
+    color: var(--bs-dark);
+    text-align: right;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    overflow-wrap: break-word;
+} */
+
+.serverMessageBlock {
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
+}
+
+.blue-separation-thin {
+    height: 1px;
+    background-color: var(--bs-blue);
+}
+
+.yellow-separation-thin {
+    height: 1px;
+    background-color: var(--bs-yellow);
+}
+
+.meta {
+    font-weight: 500;
+    margin-bottom: 0px;
+    color: var(--bs-yellow);
+    padding-right: .5rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+}
+
+.myMeta {
+    font-weight: 500;
+    margin-bottom: 0px;
+    color: var(--bs-yellow);
+    text-align: right;
+    padding-right: .5rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+}
+
+.messageText {
+    font-weight: 100;
+    margin: 0px;
+    padding-left: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.myMessageText {
+    font-weight: 100;
+    margin: 0px;
+    padding-right: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    text-align: right;
+}
+
+.timestamp {
+    font-weight: 100;
+    font-size: .6rem;
+    color: var(--bs-yellow);
+    margin: 0px;
+    padding-left: .5rem;
+}
+
+.myTimestamp {
+    font-weight: 100;
+    font-size: .6rem;
+    color: var(--bs-yellow);
+    margin: 0px;
+    padding-right: .5rem;
+    text-align: right;
+}
+
+.actions {
+    font-weight: 100;
+    font-size: .9rem;
+    color: var(--bs-dark);
+    margin: 0px;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+.myActions {
+    font-weight: 100;
+    font-size: .9rem;
+    color: var(--bs-dark);
+    margin: 0px;
+    padding: .5rem;
+    text-align: right;
+}
+
+.actions a, .myActions a {
+    color: var(--bs-dark);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.actions a:link, .actions a:visited, .actions a:hover, .actions a:active,
+.myactions a:link, .myactions a:visited, .myactions a:hover, .myactions a:active {
+    text-decoration: none;
+}
+
+.serverMessage {
+    font-weight: 100;
+    font-size: .6rem;
+    text-align: center;
+    color: var(--bs-light);
+    margin: 0px;
+}
+
+.othersServerMessage {
+    font-weight: 100;
+    text-align: left;
+    color: var(--bs-danger);
+    margin: 0px;
+}
+
+.myServerMessage {
+    font-weight: 100;
+    text-align: right;
+    color: var(--bs-danger);
+    margin: 0px;
+}
+
+.groupNum {
+    margin-bottom: 1rem;
+}
+
+.moderators {
+    margin-bottom: 1rem;
+}
+
+.users {
+    margin-bottom: 1rem;
+}
+
+.myUsernameModBlock {
+    color: var(--bs-yellow);
+    background-color: var(--bs-dark-75);
+    /* background-image: var(--bs-gradient-90) !important; */
+    border-left: 3px solid var(--bs-yellow);
+    margin-bottom: .5rem;
+    padding: .25em;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    overflow-wrap: break-word;
+}
+
+.myUsernameModText {
+    /* font-family: "Black Ops One"; */
+    padding-left: .5rem;
+    padding-bottom: 0rem;
+    margin: 0;
+}
+
+.myUsernameMemberBlock {
+    color: var(--bs-yellow);
+    background-color: var(--bs-dark-75);
+    /* background-image: var(--bs-gradient-90) !important; */
+    border-left: 3px solid var(--bs-yellow);
+    margin-bottom: .5rem;
+    padding: .25em;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    overflow-wrap: break-word;
+}
+
+.myUsernameMemberText {
+    /* font-family: "Black Ops One"; */
+    padding-left: .5rem;
+    padding-bottom: 0rem;
+    margin: 0;
+}
+
+.chat-form-container {
+    padding: 1rem;
+    /* background-color: var(--bs-dark-75); */
+}
+
+.chat-form-container form {
+    display: flex;
+}
+
+.chat-form-container input[type='text'] {
+    font-size: 14px;
+    padding: 0 1rem; 
+    height:auto;
+    flex: 1;
+    outline: none;
+}
+
+.chatForm { 
+    display: flex; 
+    box-sizing: border-box; 
+}
+
+.chatInput, .nameInput { 
+    border: none; 
+    flex-grow: 1; 
+}
+
+.chatInput:focus, .nameInput:focus { 
+    outline: none; 
+}
+
+.form-control {
+    color: var(--bs-light);
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid;
+    border-color: rgba(255, 193, 7, 1);
+    outline: 0;
+}
+
+.form-control:focus {
+    color: var(--bs-light);
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid;
+    border-color: rgba(255, 193, 7, 1);
+    outline: 0;
+    box-shadow: 0 0 .75rem rgba(255, 193, 7, .8);
+}
+
+@keyframes large-glow-yellow {
+    0% {
+		border-color: rgba(255, 193, 7, .5);
+		box-shadow: 0 0 10px rgba(255, 193, 7, .8);
+    }	
+    100% {
+		border-color: rgba(255, 193, 7, 1);
+		box-shadow: 0 0 20px rgba(255, 193, 7, 1);
+    }
+}

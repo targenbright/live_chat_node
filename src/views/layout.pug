@@ -1,0 +1,69 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="shortcut icon" type="image/ico" href="/images/favicon/favicon.ico")
+
+    title Tim Argenbright | #{title}
+
+    block headScripts
+      link(rel='stylesheet' href='/css/bootstrap.css')
+      link(rel='stylesheet' href="/css/offcanvas.css")
+      link(rel='stylesheet' href="/css/argenStyles.css")
+      link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css")
+      script(src="https://kit.fontawesome.com/92c3dce02a.js" crossorigin="anonymous")
+  body(id="appBody" class="bg-dark")
+
+    block offcanvas 
+    
+    div(class="wrapper")
+      div(class="header")
+        //- Header & Navbar
+        block navbar 
+          nav(class="navbar fixed-top navbar-dark bg-dark shadow" aria-label="Main navigation")
+            div(class="container container-lg-max")
+              a(class="navbar-brand" href="/")
+                img(src="/images/TALogoWhite.svg" style="height:35px; width:35px;")
+              button(class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation")
+                span(class="navbar-toggler-icon")
+              div(class="offcanvas-collapse" id="navbarsExampleDefault" data-bs-scroll="false")
+                ul(class="navbar-nav ml-auto")
+                  li(class="nav-item")
+                    a(class="nav-link" href="/") Home
+                  li(class="nav-item")
+                    a(class="nav-link" href="/resume") Resume
+                  li(class="nav-item")
+                    a(class="nav-link" href="/projects") Projects
+
+                    
+      div(class="content background-blue-stars text-light")
+        block landing
+          //- div(class="container-fluid" style="height:100vh; background-color: var(--bs-blue); background-image: linear-gradient(180deg, var(--bs-blue), var(--bs-dark))")
+          //-   img(src="/images/TA Logo 500.png" style="display:block; margin-left:auto; margin-right:auto;")
+
+        //- Main space for page content
+        //- WARNING 
+        //- ALL CONTENT SHOULD BEGIN WITH
+        //- div(class="container-fluid")
+        //-   div(class="container")
+        block content
+          
+        //- footer area
+        block footer
+          div(class="container-fluid")
+            div(class="container container-lg-max text-center my-3")
+              a(href="mailto:tim@timargenbright.com")
+                i(class="fas fa-at fa-2x text-warning px-3")
+              a(href="https://www.linkedin.com/in/targenbright/")
+                i(class="fab fa-linkedin fa-2x text-warning px-3")
+              a(href="https://www.github.com/targenbright")
+                i(class="fab fa-github fa-2x text-warning px-3")
+        
+    block modal
+      div
+
+    block footerScripts
+      script(src="/js/jquery.min.js")
+      script(src="/js/bootstrap.bundle.min.js")
+      script(src="/js/common/offcanvas.js")
+      //- script(src="./js/navbarHideOnScroll.js")

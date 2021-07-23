@@ -1,0 +1,25 @@
+extends ../layout
+
+block append headScripts 
+  link(rel='stylesheet' href='/css/chatStyle.css')
+
+block landing 
+  div
+
+block content
+  div(class="container-fluid")
+    div(class="container container-lg-max")
+      div(class="login-container top-yellow-border mb-5 mt-5")
+        h1(class="text-warning text-center" style="font-size: 5rem;")
+          i(class="bi bi-person-circle text-warning text-center")
+        h1(class="text-warning text-center mb-4" style="font-weight: 900;") SELECT ROOM
+        form(class="m-0" id="roomSelectForm" name="roomSelectForm" action="/projects/chat/demo" method="POST")
+          select(class="form-select mb-3" name="roomSelect" id="roomSelect" aria-label="roomSelect" required)
+            option(selected) Select a chat room...
+            - for (i in roomList) {
+                option(value=roomList[i].roomID required) #{roomList[i].roomName}
+            - }
+          div(class="d-grid mb-3")
+            button(class="btn btn-warning" style="font-weight: 900;" type="submit") JOIN ROOM
+          div(class="d-grid")
+            a(class="btn btn-danger" style="font-weight: 900;" href="/projects/chat/login") BACK TO LOGIN

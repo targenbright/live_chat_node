@@ -1,0 +1,48 @@
+extends ../layout
+
+block append headScripts 
+  link(rel='stylesheet' href='/css/chatStyle.css')
+
+block landing 
+  div
+
+block content
+  div(class="container-fluid")
+    div(class="container container-lg-max")
+      div(class="login-container top-yellow-border mb-5 mt-5")
+        h1(class="text-warning text-center" style="font-size: 5rem;")
+          i(class="bi bi-person-circle text-warning text-center")
+        h1(class="text-warning text-center mb-4" style="font-weight: 900;") REGISTER
+        form(class="m-0" id="registerForm" name="registerForm" action="/projects/chat/signup" method="POST")
+          div(class="form-floating mb-3")
+            input(type="text" class="form-control" id="username" name="username" required)
+            label(for="username" class="text-warning") Username
+          div(class="form-floating mb-3")
+            input(type="password" class="form-control" id="password" name="password" required)
+            label(for="password" class="text-warning") Password
+          div(class="form-floating mb-3")
+            input(type="password" class="form-control" id="confirm" name="confirm" required)
+            label(for="confirm" class="text-warning") Confirm Password
+          select(class="form-select mb-3" name="userType" id="userType" aria-label="userTypeSelect" onchange="userCheck(this)" required)
+            option(selected) User type 
+            option(value="1") Administrator 
+            option(value="2") Moderator 
+            option(value="3") Group Leader 
+            option(value="4") User 
+          select(class="form-select mb-3" name="ifUser" id="ifUser" style="display: none;" aria-label="userTypeSelect")
+            option(value="0" selected) Assigned Room
+            option(value="2") Downtown Smash
+            option(value="3") Espionage
+            option(value="4") Science Lab
+          div(class="form-floating mb-3")
+            input(type="password" class="form-control" id="adminPass" name="adminPass" required)
+            label(for="adminPass" class="text-warning") Admin Password
+          div(class="d-grid mb-3")
+            button(class="btn btn-warning" style="font-weight: 900;" type="submit") REGISTER
+          div(class="d-grid")
+            a(class="btn btn-danger" style="font-weight: 900;" href="/projects/chat/login") BACK TO LOGIN
+        if (msg)
+          div(class="alert alert-warning text-center mt-3 mb-0") #{msg}
+
+block append footerScripts
+  script(src="/js/chat/userAccount.js")

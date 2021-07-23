@@ -1,0 +1,78 @@
+extends ../layout
+
+block append headScripts 
+  link(rel='stylesheet' href='/css/chatStyle.css')
+
+block landing 
+  div
+
+block content
+  div(class="container-fluid")
+    div(class="container chat-container container-lg-max mb-5 mt-5 p-0 text-light")
+
+      header(class="chat-header")
+        h1(class="text-center m-0 p-3") Live Chat
+
+      form(id="chatForm" action="")
+        main(class="chat-main" id="chatMain")
+          div(class="chat-sidebar" id="chat-sidebar")
+            div(class="groupNum")
+              h5(class="text-warning")
+                i(class="fas fa-comments")
+                |  Room:
+                span(id="room-name" style="color: var(--bs-light)")  #{roomName}
+            h5(class="text-warning")
+              i(class="fas fa-star") 
+              |  Moderators
+            div(class="moderators" id="moderators")
+            h5(class="text-warning")
+              i(class="fas fa-users") 
+              |  Users
+            div(class="users" id="users")
+          
+          div(class="")
+            div(class="chat-messages")
+
+            div(class="chat-form-container")
+              div(class="chatForm")
+                div(class="input-group")
+                  a(class="btn btn-warning" id="usersToggle" onclick="toggleUsers()" href="#")
+                    i(class="fas fa-users" style="font-size: 2rem;")
+                  input(id="chatInput" type="text" placeholder="Enter Message" required autocomplete="off" class="form-control")
+                  button(class="btn btn-warning")
+                    i(class="fas fa-paper-plane" style="font-size: 2rem;")
+  
+
+
+block footer 
+  div
+
+block modal
+  div(class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered text-light")
+      div(class="modal-content modal-container top-yellow-border")
+        div(class="modal-header")
+          h5(class="modal-title text-warning" id="reportModalLabel") REPORT MESSAGE
+          button(type="button" class="btn-close text-warning" data-bs-dismiss="modal" aria-label="Close")
+        div(class="modal-body")
+          h1(class="text-warning text-center" style="font-size: 5rem;")
+            i(class="fas fa-exclamation-triangle text-warning text-center")
+          form(id="reportForm" action="")
+            div(class="mb-3")
+              select(class="form-select" name="report-reason" id="report-reason" aria-label="report-reason")
+                option(value="Name Calling" selected) Name Calling
+                option(value="Bad Words") Bad Words
+                option(value="Not for children\\'s eyes") Not for children's eyes
+        div(class="modal-footer")
+          div(class="d-grid")
+            button(id="report-button" class="btn btn-warning fw-bolder" data-bs-dismiss="modal") REPORT
+
+block append footerScripts
+  script. 
+    var myUsername = "#{username}";
+    var myRoomName = "#{roomID}";
+    
+    
+  script(src="/socket.io/socket.io.js")
+  script(src="/js/chat/chat.js")
+  

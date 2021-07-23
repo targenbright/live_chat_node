@@ -1,0 +1,50 @@
+{
+  "name": "timargenbright.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/targenbright/timargenbright.com.git"
+  },
+  "keywords": [],
+  "author": "Tim Argenbright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/targenbright/timargenbright.com/issues"
+  },
+  "homepage": "https://github.com/targenbright/timargenbright.com#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.1",
+    "bootstrap-icons": "^1.5.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.11.1",
+    "jquery": "^3.6.0",
+    "mdb-ui-kit": "^3.6.0",
+    "moment-timezone": "^0.5.33",
+    "mongo": "^0.1.0",
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.2",
+    "sass": "^1.34.0",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "css-loader": "^5.2.6",
+    "exports-loader": "^3.0.0",
+    "node-sass": "^6.0.0",
+    "nodemon": "^2.0.7",
+    "postcss-loader": "^5.3.0",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0"
+  }
+}
