@@ -1,0 +1,16 @@
+version: "3"
+services:
+    live_chat:
+        build: .
+        container_name: live_chat
+        volumes:
+            - "./src/:/src/"
+        ports:
+            - "3002:3002"
+        networks:
+            - argenNetwork
+        command: [ 'nodemon', '/src/app.js' ]
+
+networks:
+    timargenbrightcom_argenNetwork:
+        external: true
